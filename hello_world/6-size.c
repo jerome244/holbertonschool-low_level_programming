@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-	printf("%",);
+	printf("%d",);
 	return (0);
 }
