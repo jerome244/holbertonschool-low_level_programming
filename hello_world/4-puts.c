@@ -1,4 +1,4 @@
-#!/bin/bash
+gcc -o 4-puts.c
 #include <stdio.h>
 
 int main (void)
