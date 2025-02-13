@@ -1,4 +1,4 @@
-gcc -o 4-puts.c
+gcc -o 4-puts_0
 #include <stdio.h>
 
 int main (void)
