@@ -16,6 +16,7 @@ int main(void)
 	
 	for (ALPHABET = 65; ALPHABET < 91; ALPHABET++)
 		putchar(ALPHABET);
+	
 	putchar('\n');
 	return (0);
 }
