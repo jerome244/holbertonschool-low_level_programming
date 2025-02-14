@@ -9,14 +9,14 @@
 
 int main(void)
 {
-	print('_');
-	print('p');
-	print('u');
-	print('t');
-	print('c');
-	print('h');
-	print('a');
-	print('r');
-	print('\n');
+	_putchar('_');
+	_putchar('p');
+	_putchar('u');
+	_putchar('t');
+	_putchar('c');
+	_putchar('h');
+	_putchar('a');
+	_putchar('r');
+	_putchar('\n');
 	return (0);
 }
