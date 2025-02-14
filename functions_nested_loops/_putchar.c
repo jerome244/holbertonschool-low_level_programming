@@ -11,19 +11,3 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
-/**
- * print_alphabet - print alphabet in lowercase
- * void
- *
- * Return: On success void.
- * On error.
- */
-void print_alphabet(void)
-{
-	char a;
-	char b = '\n';
-	
-	for (a = 'a'; a <= 'z'; a++)
-		_putchar(a);
-	_putchar(b);
-}
