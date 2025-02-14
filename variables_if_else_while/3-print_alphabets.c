@@ -9,11 +9,11 @@
 int main(void)
 {
 	int alphabet, ALPHABET;
-
+	
 	for (alphabet = 97; alphabet <= 122; alphabet++)
 		putchar(alphabet);
 	for (ALPHABET = 65; ALPHABET < 91; ALPHABET++)
 		putchar(ALPHABET);
-        putchar('\n');
+	putchar('\n');
 	return (0);
 }
