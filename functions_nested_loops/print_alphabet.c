@@ -1,5 +1,4 @@
 #include <unistd.h>
-#include "_putchar.c"
 
 /**
  * print_alphabet - display alphabet in lowercase
@@ -11,7 +10,7 @@
 void print_alphabet(void)
 {
         char c;
-	char d = '\n';
+	char d = 'n';
 
 	for (c = 'a'; c <= 'z'; c++)
 		_putchar(c);
