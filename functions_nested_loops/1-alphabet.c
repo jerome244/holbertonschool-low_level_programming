@@ -1,6 +1,4 @@
 #include "main.h"
-#include "print_alphabet.c"
-#include "_putchar.c"
 
 /**
  * main - check the code
