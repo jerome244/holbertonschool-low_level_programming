@@ -9,8 +9,7 @@
 int main(void)
 {
 	int alphabet;
-	int ALPHABET;
-	
+	int ALPHABET;	
 	for (alphabet = 97; alphabet <= 122; alphabet++)
 		putchar(alphabet);
 	for (ALPHABET = 65; ALPHABET < 91; ALPHABET++)
