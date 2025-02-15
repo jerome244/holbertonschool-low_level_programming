@@ -2,10 +2,9 @@
 
 /**
  * print_sign - print sign of a number
- * @n: integer argument
- * Result: 1 and print '+' if positive, 0 and print 0 if zero, -1 print -1 if negative
+ * @n: integer arg
+ * Return: + if n > 0, 0 if n = 0, -1 if n < 0
  */
-
 int print_sign(int n)
 {
 	if (n > 0)
@@ -24,4 +23,3 @@ int print_sign(int n)
 		return (-1);
 	}
 }
-
