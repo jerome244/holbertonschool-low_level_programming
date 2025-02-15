@@ -13,5 +13,5 @@ int print_last_digit(int i)
 	if (j < 0)
 		j *= -1;
 	_putchar('0' + j);
-	return j;
+	return (j);
 }
