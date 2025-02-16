@@ -8,30 +8,16 @@
 
 int main(void)
 {
-	int i;
-	long j, k, l;
+	long int sum = 2, i = 1, j = 2, k = 0;
 
-	j = 0, k = 1;
-	l = j + k;
-	for (i = 3; i <= 52; i++)
+	while (k <= 4000000)
 	{
-		if (l < 4000000)
-		{
-			if (l < 3524578)
-			{
-				printf("%ld, ", l);
-				j = k;
-				k = l;
-				l = j + k;
-			}
-			else
-			{
-				printf("%ld\n", l);
-                                j = k;
-                                k = l;
-                                l = j + k;
-			}
-		}
+		k = i + j;
+		if (k % 2 == 0)
+			sum += k;
+		i = j;
+		j = k;
 	}
+	printf("%ld\n", sum);
 	return (0);
 }
