@@ -8,23 +8,26 @@
 
 int main(void)
 {
-	int i, j, k, l;
+	int i;
+	long j, k, l;
 
 	j = 0, k = 1;
 	l = j + k;
-	printf("%d, %d, ", j, k);
-	for (i = 3; i <= 50; i++)
+	for (i = 3; i <= 52; i++)
 	{
-		if (i < 50)
+		if (i < 52)
 		{
-			printf("%d, ", l);
+			printf("%ld, ", l);
 			j = k;
 			k = l;
 			l = j + k;
 		}
 		else
 		{
-			printf("%d\n", l);
+			printf("%ld\n", l);
+			j = k;
+			k = l;
+			l = j + k;
 		}
 	}
 	return (0);
