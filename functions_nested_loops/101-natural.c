@@ -8,17 +8,15 @@
 
 int main(void)
 {
-	int i;
+	int i, j;
 
-	for (i = 0; i <= 1024; i++)
+	for (i = 0, j = 0; i <= 1024; i++)
 	{
 		if (i % 3 == 0 || i % 5 == 0)
 		{
-			printf("%d", i);
-			if (i < 1023)
-				printf(", ");
+			j += i;
 		}
 	}
-	printf("\n");
+	printf("%d\n", j);
 	return (0);
 }
