@@ -3,32 +3,30 @@
 /**
  * main - Entry point
  *
- * Return: Always 0 (Success)
+ * Description: program that finds and prints the first 98 Fibonacci
+ *              numbers, starting with 1 and 2
+ *
+ * Return: Always 0 successful
  */
-
 int main(void)
 {
+	unsigned long int t0 = 0, t1 = 1, s;
 	int i;
-	long j, k, l;
 
-	j = 0, k = 1;
-	l = j + k;
-	for (i = 3; i <= 100; i++)
+	for (i = 1; i <= 98; i++)
 	{
-		if (i < 100)
+		s = t0 + t1;
+
+		if (i != 98)
 		{
-			printf("%ld, ", l);
-			j = k;
-			k = l;
-			l = j + k;
-		}
+			printf("%lu, ", s);
+	}
 		else
 		{
-			printf("%ld\n", l);
-			j = k;
-			k = l;
-			l = j + k;
+			printf("%lu\n", s);
 		}
+		t0 = t1;
+		t1 = s;
 	}
 	return (0);
 }
