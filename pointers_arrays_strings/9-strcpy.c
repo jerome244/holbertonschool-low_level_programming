@@ -14,9 +14,16 @@ char *_strcpy(char *dest, char *src)
 
 	while (*src != '\0')
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		if (!'\n')
+			*dest = *src;
+			dest++;
+			src++;
+		else
+		{
+			*dest = *src;
+			dest++;
+			src++;
+			_putchar('\n');
+		}
 	}
-	return (temp);
 }
