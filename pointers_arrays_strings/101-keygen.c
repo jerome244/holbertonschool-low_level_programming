@@ -12,11 +12,13 @@ int main(void)
 {
 	int password_length = 10;
 	char list[] = "1234567890qwertyuiopasdfghjklzxcvbnm!@#$%^&*()_- +=QWERTYUIOPASDFGHJKLZXCVBNM[]{};':\"<>,.?/|";
+	int i = 0;
 
 	srand(time(NULL));
-	for(int i = 0; i < password_length; i++)
+	while (i < password_length)
 	{
 		printf("%c", list[rand() % (sizeof list - 1)]);
+		i++;
 	}
 	printf("\n");
 	return (0);
