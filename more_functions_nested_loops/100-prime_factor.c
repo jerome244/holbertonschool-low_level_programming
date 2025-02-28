@@ -19,7 +19,7 @@ int main(void)
 		else
 			c++;
 	}
-	printf("%ld ", c);
+	printf("%ld", c);
 	printf("\n");
 	return (0);
 }
