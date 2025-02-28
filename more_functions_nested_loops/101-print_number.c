@@ -7,19 +7,22 @@
 
 void print_number(int n)
 {
-	if (n != 0)
+	int i;
+
+	if (n < 0)
 	{
-		if (n < 0)
-		{
-			_putchar('-');
-			n = -n;
-		}
-		if (n / 10)
-			print_number(n / 10);
-		_putchar(n % 10 + '0');
+		_putchar('-');
+		lastDigit = n % 10 * -1;
+		n = n / -10;
+		if (n > 0)
+			print_number(n);
+		_putchar('0' + lastDigit);
 	}
+	else if (n < 10)
+		_putchar('0' + n % 10);
 	else
 	{
-		_putchar('0');
+		print_number(n / 10);
+		_putchar('0' + n % 10);
 	}
 }
