@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <math.h> 
 
 /**
  * main - generate a random password
@@ -16,7 +17,7 @@ int main(void)
 	char letter[] = "abcdefghijklmnoqprstuvwyzx";
 	char LETTER[] = "ABCDEFGHIJKLMNOQPRSTUYWVZX";
 	char symbols[] = "!@#$^&*?";
-	int password[N];
+	char password[N];
 
 	srand((unsigned int)(time(NULL)));
 	randomizer = rand() % 4;
