@@ -4,7 +4,7 @@
  * _strcmp - tell us which string is longer or shorter than the other one
  * @s1: first string
  * @s2: second string
- * Return: > 0 if greater; < 0 if lower; 0 if equal
+ * Return:  sup to 0 if greater inf to 0 if lower 0 if equal
  */
 
 int _strcmp(char *s1, char *s2)
