@@ -2,7 +2,7 @@
 
 /**
  * _puts_recursion - print a string
- * ended by a null character
+ * followed by a newline
  *
  * @s: pointer from a string
  */
@@ -15,4 +15,6 @@ void _puts_recursion(char *s)
 		s++;
 		_puts_recursion(s);
 	}
+	else
+		_putchar('\n');
 }
