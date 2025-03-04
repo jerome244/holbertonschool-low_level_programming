@@ -1,7 +1,9 @@
 /**
- * _sqrt_recursion - return natural square root of a number
- * @n: entry
- * Return: result of the calculation
+ * support_function - support for conditioning the root calculations
+ * @number: user entry
+ * @root: root number
+ * Return: -1 if number entry does not have root
+ * else return root result
  */
 
 int support_function(int number, int root)
@@ -20,7 +22,11 @@ int support_function(int number, int root)
 	}
 }
 
-
+/**
+ * _sqrt_recursion - calculation of natural square root of a number
+ * @n: entry
+ * Return: result of the calculation
+ */
 int _sqrt_recursion(int n)
 {
 	if (n < 0)
