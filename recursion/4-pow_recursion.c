@@ -1,5 +1,5 @@
 /**
- * _pow_recusion - return value of x
+ * _pow_recursion - return value of x
  * raised by power of y
  *
  * @x: receiver
