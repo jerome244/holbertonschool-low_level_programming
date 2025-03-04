@@ -1,9 +1,7 @@
 /**
  * is_prime_number - indicate if entry is a prime number
- * 
  * @n: entry
- * Return: 1 if it is
- * 0 if not
+ * Return: 1 if it is 0 if not
  */
 
 int is_prime_number(int n)
