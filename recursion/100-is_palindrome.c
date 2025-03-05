@@ -14,6 +14,14 @@ int _strlen(char *s)
 	return (i);
 }
 
+/**
+ * palinHelper - check if palindrome
+ * @s: string
+ * @left: value of string
+ * @right: value of string
+ * Return: 1 if palin else 0
+ */
+
 int palinHelper(char *s, int left, int right)
 {
 	if (left >= right)
