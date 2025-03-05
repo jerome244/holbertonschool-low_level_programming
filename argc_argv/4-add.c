@@ -55,14 +55,7 @@ int main(int argc, char *argv[])
 	{
 		for (i = 1; i < argc; i++)
 		{
-			if (_atoi(argv[i]) < 0)
-			{
-				printf("Error\n");
-				return (1);
-			}
-			else
-			{
-				for (j = 0; argv[i][j]; j++)
+			for (j = 0; argv[i][j]; j++)
 				{
 					if (!(argv[i][j] >= '0' && argv[i][j] <= '9'))
 					{
@@ -71,7 +64,6 @@ int main(int argc, char *argv[])
 					}
 				}
 				sum += _atoi(argv[i]);
-			}
 		}
 		printf("%d\n", sum);
 	}
