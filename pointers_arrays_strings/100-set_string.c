@@ -38,7 +38,9 @@ char *_strcpy(char *dest, char *src)
 	return (temp);
 }
 /**
- *
+ * set_string - copy content of str1 into str2
+ * @s: pointed string source
+ * @to: pointed string destination
  */
 
 void set_string(char **s, char *to)
