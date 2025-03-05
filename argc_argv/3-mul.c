@@ -47,15 +47,15 @@ int main(int argc, char *argv[])
 {
 	int i, j;
 
-	i = _atoi(argv[1]);
-	j = _atoi(argv[2]);
 	if (argc != 3)
 	{
 		printf("Error\n");
-		return (-1);
+		return (1);
 	}
 	else
 	{
+		i = _atoi(argv[1]);
+		j = _atoi(argv[2]);
 		printf("%d\n", i * j);
 		return (0);
 	}
