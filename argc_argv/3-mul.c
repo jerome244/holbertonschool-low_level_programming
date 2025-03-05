@@ -40,7 +40,7 @@ int _atoi(char *s)
  * main - multiply two int
  * @argc: number of arguments
  * @argv: array of arguments
- * Return: 0 if no errors
+ * Return: 1 if error else 0
  */
 
 int main(int argc, char *argv[])
