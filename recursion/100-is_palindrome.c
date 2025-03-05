@@ -1,18 +1,10 @@
+#include <string.h>
+
 /**
  * _strlen - return length of string
  * @s: array of char
  * Return: int
  */
-
-int _strlen(char *s)
-{
-	int i;
-
-	for (i = 0; s[i]; i++)
-		;
-
-	return (i);
-}
 
 /**
  * palinHelper - check if palindrome
@@ -39,7 +31,7 @@ int palinHelper(char *s, int left, int right)
 
 int is_palindrome(char *s)
 {
-	if (palinHelper(s, 0, _strlen(s) - 1))
+	if (palinHelper(s, 0, strlen(s) - 1))
 		return (1);
 	else
 		return (0);
