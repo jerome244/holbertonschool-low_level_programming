@@ -14,6 +14,15 @@ int _strlen(char *s)
 	return (i);
 }
 
+int palinHelper(char *s, int left, int right)
+{
+	if (left >= right)
+		return (1);
+	if (s[left] != s[right])
+		return (0);
+	return (palinHelper(s, left + 1, right - 1));
+}
+
 /**
  * is_palindrome - check if a string is palindrome or not
  * @s: string entry
@@ -22,10 +31,8 @@ int _strlen(char *s)
 
 int is_palindrome(char *s)
 {
-	char *end = s + _strlen(s);
-
-	while (end > s)
-		if (*(--end) != *(s++))
-			return (0);
-	return (1);
+	if (palinHelper(s, 0, _strlen(s) - 1))
+		return (1);
+	else
+		return (0);
 }
