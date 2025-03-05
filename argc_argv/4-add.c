@@ -46,14 +46,14 @@ int _atoi(char *s)
  * Return: 1 if error else 0
  */
 
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int sum, i;
-	
+
 	sum = 0;
-	if(argc > 1)
+	if (argc > 1)
 	{
-		for(i = 1; i < argc; i++)
+		for (i = 1; i < argc; i++)
 		{
 			if (_atoi(argv[i]) < 0)
 			{
