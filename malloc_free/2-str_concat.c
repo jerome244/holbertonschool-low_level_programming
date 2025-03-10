@@ -28,24 +28,24 @@ int _strlen(char *s)
 
 char *str_concat(char *str1, char *str2)
 {
-	int len1, len2, sum, i, j;
+	int s1, s2, s3, i, j;
 	char *ptr;
 
 	if (str1 == NULL)
 		str1 = "";
 	if (str1 == NULL)
 		str2 = "";
-	len1 = _strlen(str1);
-	len2 = _strlen(str2);
-	sum = len1 + len2;
+	s1 = _strlen(str1);
+	s2 = _strlen(str2);
+	s3 = len1 + len2;
 	ptr = malloc(sum + 1);
 	if (ptr == NULL)
                 return (ptr);
-	for (i = 0; i < len1; i++)
+	for (i = 0; i < s1; i++)
 	{
 		ptr[i] = str1[i];
 	}
-	for (j = 0; j < len1 + len2; i++, j++)
+	for (j = 0; j < s1 + s2; i++, j++)
 	{
 		ptr[i] = str2[j];
 	}
