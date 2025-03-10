@@ -32,9 +32,9 @@ char *str_concat(char *str1, char *str2)
 	char *ptr;
 
 	if (str1 == NULL)
-		str1 = "";
+		str1 = "\0";
 	if (str1 == NULL)
-		str2 = "";
+		str2 = "\0";
 	s1 = _strlen(str1);
 	s2 = _strlen(str2);
 	s3 = s1 + s2 + 1;
