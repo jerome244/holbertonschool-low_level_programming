@@ -18,7 +18,7 @@ int _strlen(char *s)
 }
 
 /**
- * _strdup - duplicate a string in allocated memory
+ * _strdup - duplicate a string into allocated memory
  * @str: input string
  * Return: pointer to duplicated string
  */
@@ -27,21 +27,21 @@ char *_strdup(char *str)
 {
 	int size;
 	char *ptr;
-	char *dup_offset;
+	char *dup;
 
-	/* Allocate memory for duplicate */
+	if (str == NULL)
+		return (NULL);
 	size = _strlen(str);
-	ptr = ((char *)malloc(sizeof(char) * size + 1));
+	ptr = (malloc(sizeof(char) * size + 1));	
 	if (ptr == NULL)
-		return ((char *) NULL);
-	/* Copy string */
-	dup_offset = ptr;
+		return (NULL);
+	dup = ptr;
 	while (*str)
 	{
-		*dup_offset = *str;
-		dup_offset++;
+		*dup = *str;
+		dup++;
 		str++;
 	}
-	*dup_offset = '\0';
+	*dup = '\0';
 	return (ptr);
 }
