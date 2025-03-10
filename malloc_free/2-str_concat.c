@@ -31,6 +31,10 @@ char *str_concat(char *str1, char *str2)
 	int a, b, c, i = 0;
 	char *ptr;
 
+	if (str1 == NULL)
+		str1 = "";
+	if (str1 == NULL)
+		str2 = "";
 	a = _strlen(str1);
 	b = _strlen(str2);
 	c = a + b + 1;
