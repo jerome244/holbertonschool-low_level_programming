@@ -39,6 +39,8 @@ char *str_concat(char *str1, char *str2)
 	b = _strlen(str2);
 	c = a + b + 1;
 	ptr = malloc(c);
+	if (ptr == NULL)
+                return (ptr);
 	for (i = 0; i < a; i++)
 	{
 		ptr[i] = str1[i];
