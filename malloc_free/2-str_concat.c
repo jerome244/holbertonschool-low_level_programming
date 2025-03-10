@@ -30,11 +30,12 @@ char *str_concat(char *str1, char *str2)
 {
 	int s1, s2, s3, i, j;
 	char *ptr;
+	char *mt = "";
 
 	if (str1 == NULL)
-		str1 = "";
+		str1 = mt;
 	if (str1 == NULL)
-		str2 = "";
+		str2 = mt;
 	s1 = _strlen(str1);
 	s2 = _strlen(str2);
 	s3 = s1 + s2 + 1;
