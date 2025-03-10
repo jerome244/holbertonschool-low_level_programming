@@ -37,10 +37,10 @@ char *str_concat(char *str1, char *str2)
 		str2 = "";
 	s1 = _strlen(str1);
 	s2 = _strlen(str2);
-	s3 = len1 + len2;
-	ptr = malloc(sum + 1);
+	s3 = s1 + s2 + 1;
+	ptr = malloc(s3);
 	if (ptr == NULL)
-                return (ptr);
+		return (ptr);
 	for (i = 0; i < s1; i++)
 	{
 		ptr[i] = str1[i];
