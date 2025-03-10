@@ -9,12 +9,11 @@
 
 int _strlen(char *s)
 {
-        int i;
+	int i;
 
-        for (i = 0; s[i]; i++)
-                ;
-
-        return (i);
+	for (i = 0; s[i]; i++)
+		;
+	return (i);
 }
 
 /**
@@ -32,7 +31,7 @@ char *_strdup(char *str)
 	if (str == NULL)
 		return (NULL);
 	size = _strlen(str);
-	ptr = (malloc(sizeof(char) * size + 1));	
+	ptr = (malloc(sizeof(char) * size + 1));
 	if (ptr == NULL)
 		return (NULL);
 	dup = ptr;
