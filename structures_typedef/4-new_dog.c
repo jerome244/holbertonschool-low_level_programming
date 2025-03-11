@@ -1,38 +1,91 @@
-#include "dog.h"
 #include <stdlib.h>
+#include <stdio.h>
+#include "dog.h"
+
 /**
- * new_dog - creates a new dog
- * @name: name of doge
- * @age: age of doge
- * @owner: does anyone ever really own a doge?
+ * _strlen - return length of a string
  *
- * Return: Pointer to new doge, NULL if fails
+ * @s: char type
+ * Return:  length of string
  */
+
+int _strlen(char *s)
+{
+	int a;
+
+	for (a = 0; s[a] != '\0'; a++)
+	{
+
+	}
+	return (a);
+}
+/**
+ * _strcpy - function to copy string from source to destination
+ *@dest: pointer to destinatioin of string to be copied
+ *@src: pointer to source of string to be copied
+ * Return: return the value at dest
+ */
+
+char *_strcpy(char *dest, char *src)
+{
+	int a;
+
+	for (a = 0; src[a] != '\0'; a++)
+	{
+		dest[a] = src[a];
+	}
+	dest[a] = '\0';
+	return (dest);
+}
+/**
+ * *new_dog - function to create new dog struct
+ * @name: char type
+ * @age: float type
+ * @owner: char type
+ * Return: Always success
+ */
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new_dog;
-	int len1, len2, i;
+	dog_t *newd;
 
-	len1 = len2 = i = 0;
-	while (name[len1++] != '\0')
-		;
-	while (owner[len2++] != '\0')
-		;
-
-	new_dog = malloc(sizeof(dog_t));
-	if (new_dog == NULL)
+	newd = malloc(sizeof(struct dog));
+	if (newd == NULL)
+	{
+		free(newd);
 		return (NULL);
+	}
 
-	new_dog->name = malloc(len1);
-	new_dog->owner = malloc(len2);
+	if (name == NULL)
+	{
+		free(newd);
+		return (NULL);
+	}
+	newd->name = malloc(sizeof(char) * (_strlen(name) + 1));
+	if (newd->name == NULL)
+	{
+		free(newd->name);
+		free(newd);
+		return (NULL);
+	}
+	_strcpy(newd->name, name);
 
-	do {
-		new_dog->name[i] = name[i];
-	} while (name[i++] != '\0');
-	i = 0;
-	do {
-		new_dog->owner[i] = owner[i];
-	} while (owner[i++] != '\0');
-	new_dog->age = age;
-	return (new_dog);
+	newd->age = age;
+
+	if (owner == NULL)
+	{
+		free(newd->owner);
+		free(newd);
+		return (NULL);
+	}
+	newd->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
+	if (newd->owner == NULL)
+	{
+		free(newd->owner);
+		free(newd);
+		return (NULL);
+	}
+	_strcpy(newd->owner, owner);
+
+	return (newd);
 }
