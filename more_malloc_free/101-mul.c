@@ -1,115 +1,197 @@
-#include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-
+#include "holberton.h"
 /**
- * _isdigit - checks if character is digit
- * @c: the character to check
- *
- * Return: 1 if digit, 0 otherwise
+ * _prt - print string followed by newline
+ * @s: string to print
  */
-int _isdigit(int c)
+void _prt(char *s)
 {
-	return (c >= '0' && c <= '9');
+	while (*s != '\0')
+		_putchar(*s++);
+	_putchar('\n');
 }
-
 /**
- * _strlen - returns the length of a string
- * @s: the string whose length to check
+ * _realloc - Re-allocate memory for a larger or smaller size
+ * @ptr: Pointer to the old memory block
+ * @old_size: The old size of the memory block
+ * @new_size: The new size of the memory block being created
  *
- * Return: integer length of string
+ * Return: Pointer to new memory
  */
-int _strlen(char *s)
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	int i = 0;
+	void *space;
+	char *spacecpy, *ptrcpy;
+	unsigned int i;
 
-	while (*s++)
+	if (new_size == 0 && ptr != NULL)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	if (new_size == old_size)
+		return (ptr);
+	/* regardless, we need to make new space of new_size */
+	space = malloc(new_size);
+	if (space == NULL)
+		return (NULL);
+	/* if ptr is null, return space without copying */
+	if (ptr == NULL)
+		return (space);
+	/* copy old contents into new space */
+	spacecpy = space;
+	ptrcpy = ptr;
+	for (i = 0; i < old_size && i < new_size; i++)
+		spacecpy[i] = ptrcpy[i];
+	free(ptr);
+	return (space);
+}
+/**
+ * _calloc - Allocate memory and initalize space to zero
+ * @nmemb: number of elements
+ * @size: size of bytes
+ *
+ * Return: pointer to memory space, or NULL
+ */
+void *_calloc(unsigned int nmemb, unsigned int size)
+{
+	void *space;
+	char *memset;
+	unsigned int i;
+
+	if (nmemb == 0 || size == 0)
+		return (NULL);
+	space = malloc(nmemb * size);
+	if (space == NULL)
+		return (NULL);
+
+	memset = space;
+	for (i = 0 ; i < nmemb * size; i++)
+	{
+		*(memset + i) = 0;
+	}
+
+	return (space);
+}
+/**
+ * _notdigit - check to see if string is only digits
+ * @s: string to check
+ *
+ * Return: 0 if only digits, 1 if non digit chars
+ */
+int _notdigit(char *s)
+{
+	for ( ; *s; s++)
+		if (*s < '0' || *s > '9')
+			return (1);
+	return (0);
+}
+/**
+ * rev_ - Reverse a string in place
+ * @s: string to reverse
+ */
+void rev_(char *s)
+{
+	char tmp;
+	int i, j;
+
+	for (i = 0; s[i]; i++)
+		;
+	i--;
+	for (j = 0; j <= i / 2; j++)
+	{
+		tmp = s[j];
+		s[j] = s[i - j];
+		s[i - j] = tmp;
+	}
+}
+/**
+ * _addup - add up integer array
+ * @arr: array to count
+ * @n: number of ints to count
+ * @place: which tens place to count
+ *
+ * Return: result of addition
+ */
+int _addup(int *arr, int n, int place)
+{
+	int sum, i;
+
+	for (i = 0, sum = 0; i < n; i++)
+	{
+		sum += arr[n * i + place];
+	}
+	return (sum);
+}
+/**
+ * cut_zeros - cut off my zeros
+ * @s: string to cut
+ *
+ * Return: length of s
+ */
+int cut_zeros(char *s)
+{
+	int i;
+
+	i = 0;
+	while (*s != '\0')
+	{
 		i++;
+		s++;
+	}
+	i--;
+	s--;
+	while (*s == '0' && i > 0)
+	{
+		*s = '\0';
+		s--;
+		i--;
+	}
 	return (i);
 }
 
 /**
- * big_multiply - multiply two big number strings
- * @s1: the first big number string
- * @s2: the second big number string
+ * main - multiple two numbers and print the result
+ * @argc: Number of arguments
+ * @argv: Argument strings
  *
- * Return: the product big number string
+ * Return: 0
  */
-char *big_multiply(char *s1, char *s2)
+int main(int argc, char *argv[])
 {
-	char *r;
-	int l1, l2, a, b, c, x;
-
-	l1 = _strlen(s1);
-	l2 = _strlen(s2);
-	r = malloc(a = x = l1 + l2);
-	if (!r)
-		printf("Error\n"), exit(98);
-	while (a--)
-		r[a] = 0;
-
-	for (l1--; l1 >= 0; l1--)
-	{
-		if (!_isdigit(s1[l1]))
-		{
-			free(r);
-			printf("Error\n"), exit(98);
-		}
-		a = s1[l1] - '0';
-		c = 0;
-
-		for (l2 = _strlen(s2) - 1; l2 >= 0; l2--)
-		{
-			if (!_isdigit(s2[l2]))
-			{
-				free(r);
-				printf("Error\n"), exit(98);
-			}
-			b = s2[l2] - '0';
-
-			c += r[l1 + l2 + 1] + (a * b);
-			r[l1 + l2 + 1] = c % 10;
-
-			c /= 10;
-		}
-		if (c)
-			r[l1 + l2 + 1] += c;
-	}
-	return (r);
-}
-
-
-/**
- * main - multiply two big number strings
- * @argc: the number of arguments
- * @argv: the argument vector
- *
- * Return: Always 0 on success.
- */
-int main(int argc, char **argv)
-{
-	char *r;
-	int a, c, x;
+	int *calc;
+	char *final;
+	unsigned int l1, l2, lsum, i, j, ntmp, rolltmp;
 
 	if (argc != 3)
-		printf("Error\n"), exit(98);
-
-	x = _strlen(argv[1]) + _strlen(argv[2]);
-	r = big_multiply(argv[1], argv[2]);
-	c = 0;
-	a = 0;
-	while (c < x)
+		_prt("Error"), exit(98);
+	if (_notdigit(argv[1]) || _notdigit(argv[2]))
+		_prt("Error"), exit(98);
+	for (l1 = 0; argv[1][l1]; l1++)
+		;
+	for (l2 = 0; argv[2][l2]; l2++)
+		;
+	lsum = l1 + l2, final = malloc((lsum + 2) * sizeof(*final));
+	calc = _calloc(lsum * lsum, sizeof(int));
+	if (calc == NULL)
+		_prt("Error"), exit(98);
+	rev_(argv[1]), rev_(argv[2]);
+	for (i = 0; i < l1; i++)
 	{
-		if (r[c])
-			a = 1;
-		if (a)
-			_putchar(r[c] + '0');
-		c++;
+		rolltmp = 0, ntmp = 0;
+		for (j = 0; j < l2; j++)
+		{
+			ntmp = (argv[1][i] - '0') * (argv[2][j] - '0') + rolltmp;
+			calc[i * lsum + j + i] = ntmp % 10, rolltmp = ntmp / 10;
+		}
+		for (; j < l2 + i; j++, rolltmp /= 10)
+			calc[i * lsum + j + i] = rolltmp % 10;
+		while (rolltmp)
+			calc[i * lsum + j + i] = rolltmp % 10, rolltmp /= 10, j++;
 	}
-	if (!a)
-		_putchar('0');
-	_putchar('\n');
-	free(r);
+	for (i = 0, rolltmp = 0; i < lsum; i++, rolltmp /= 10)
+		rolltmp += _addup(calc, lsum, i), final[i] = rolltmp % 10 + '0';
+	final[i + 1] = '\0', i = cut_zeros(final), rev_(final);
+	final[i + 2] = '\0', _prt(final), free(calc), free(final);
 	return (0);
 }
