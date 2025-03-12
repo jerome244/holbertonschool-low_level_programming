@@ -1,25 +1,36 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
-#include <math.h> 
+#include <stdlib.h>
+
+#define SUM 2772
 
 /**
- * main - generate a random password
- * Return: always 0 (Success)
+ * main - it all starts here
+ *
+ * Return: 0 always success
  */
-
 int main(void)
 {
-	int password_length = 14;
-	char list[] = "1234567890qwertyuiopasdfghjklzxcvbnm!@#$%^&*()_- +=QWERTYUIOPASDFGHJKLZXCVBNM[]{};':\\\"<>,.?/|";
-	int i = 0;
+	int sum = 0, n = 0, i = 0;
+	char str[100];
 
 	srand(time(NULL));
-	while (i < password_length)
+	while (sum < SUM)
 	{
-		printf("%c", list[rand() % (sizeof list - 1)]);
-		i++;
+		if (SUM - sum < 48)
+			sum -= str[--i];
+		else if (SUM - sum <= 126)
+			n = SUM - sum;
+		else
+			n = rand() % (126 - 48) + 48;
+		if (n)
+		{
+			str[i++] = n;
+			sum += n;
+		}
+		n = 0;
 	}
-	printf("\n");
+	str[i] = '\0';
+	printf("%s", str);
 	return (0);
 }
