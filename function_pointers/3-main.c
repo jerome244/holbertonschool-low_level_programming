@@ -10,7 +10,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int num1, num2, (*fn)(int, int);
+	int num1, num2, (*operator)(int, int);
 
 	if (argc != 4)
 	{
@@ -24,12 +24,12 @@ int main(int argc, char *argv[])
 		puts("Error");
 		return (100);
 	}
-	fn = get_op_func(argv[2]);
-	if (fn == NULL)
+	operator = get_op_func(argv[2]);
+	if (operator == NULL)
 	{
 		puts("Error");
 		return (99);
 	}
-	printf("%d\n", fn(num1, num2));
+	printf("%d\n", operator(num1, num2));
 	return (0);
 }
