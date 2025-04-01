@@ -1,10 +1,10 @@
 #include "lists.h"
 
 /**
- * add_dnodeint - prepends a node to a linked list
+ * add_dnodeint_end - appends a node to a linked list
  * @head: pointer to the head of a linked list
- * @n: integer the new node should contain
- * Return: pointer to the new node
+ * @n: integer that the new node should hold
+ * Return: pointer to the allocated node
  */
 
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
