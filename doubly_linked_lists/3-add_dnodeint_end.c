@@ -7,7 +7,7 @@
  * Return: pointer to the allocated node
  */
 
-dlistint_t *add_dnodeint(dlistint_t **head, const int n)
+dliistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
 	dlistint_t *new, *end;
 
