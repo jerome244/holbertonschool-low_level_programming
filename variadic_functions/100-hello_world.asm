@@ -9,5 +9,5 @@ main:
 	int		0x80			;call kernel
 
 section		.data
-msg	db 'Hello, Holberton',0xa
+msg	db 'Hello, World',0xa
 len equ $ - msg
