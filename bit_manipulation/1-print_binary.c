@@ -12,7 +12,7 @@ void print_binary(unsigned long int n)
 
 	for (bit = bit << (bits - 1); bit; bit = bit >> 1)
 	{
-		if (n & bit) && lead_zero
+		if ((n & bit) && lead_zero)
 			lead_zero = 0;
 		if (!lead_zero)
 			_putchar(((n & bit) ? 1 : 0) + '0');
