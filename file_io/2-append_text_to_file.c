@@ -28,8 +28,8 @@ int _strlen(char *s)
 
 int append_text_to_file(const char *filename, char *text_content)
 {
-	ssize_t fd, written = 0;
-	size_t len = _strlen(text_content);
+	int fd;
+	size_t written = 0, len = _strlen(text_content);
 
 	if (filename)
 		return (-1);
